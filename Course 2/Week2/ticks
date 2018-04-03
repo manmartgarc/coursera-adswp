@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar 17 19:36:42 2018
+
+@author: manma
+"""
+
+#%%
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.figure()
+
+languages =['Python', 'SQL', 'Java', 'C++', 'JavaScript']
+pos = np.arange(len(languages))
+popularity = [56, 39, 34, 34, 29]
+
+bars = plt.bar(pos, popularity, align='center', 
+               color='lightslategrey', linewidth=0)
+bars[0].set_color('#42003F')
+
+
+plt.xticks(pos, languages)
+plt.tick_params(top=False,
+                bottom=False,
+                left=False,
+                right=False,
+                labelleft=False,
+                labelbottom=True,
+                colors='gray')
+plt.gca().set_frame_on(False)
+
+
+plt.ylabel('% Popularity', color='grey')
+plt.title('Top 5 Languages for Math & Data \nby % popularity on Stack Overflow', alpha=0.8)
+
+#TODO: remove all the ticks (both axes), and tick labels on the Y axis
+
+plt.show()
