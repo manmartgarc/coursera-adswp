@@ -18,3 +18,20 @@ def answer_one():
     return (deg_c, clo_c, bet_c)
 
 def answer_two():
+    """
+    Suppose you are employed by an online shopping website and are tasked with
+    selecting one user in network G1 to send an online shopping voucher to.
+    We expect that the user who receives the voucher will send it to their
+    friends in the network. You want the voucher to reach as many nodes
+    as possible. The voucher can be forwarded to multiple users at the
+    same time, but the travel distance of the voucher is limited to one step,
+    which means if the voucher travels more than one step in this network,
+    it is no longer valid.
+    Apply your knowledge in network centrality to select the best
+    candidate for the voucher.
+    """
+
+    clo_c_all = nx.degree_centrality(G1)
+    max_degree_node = max(clo_c_all.items(), key=lambda x: x[1])
+    return max_degree_node[0]
+    
