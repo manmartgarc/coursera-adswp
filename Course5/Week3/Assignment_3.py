@@ -96,3 +96,32 @@ def answer_seven():
     """
 
     hits = nx.hits(G2)
+    hub_score = hits[0]['realclearpolitics.com']
+    auth_score = hits[1]['realclearpolitics.com']
+    return (hub_score, auth_score)
+
+def answer_eight():
+    """
+    Apply the HITS Algorithm to this network to find the 5 nodes with highest
+    hub scores.
+    """
+
+    hits = nx.hits(G2)
+    sorted_hubs = sorted(hits[0].items(), reverse=True, key=lambda x: x[1])
+    top_5 = sorted_hubs[:5]
+    top_5_hubs = [blog for blog, hub_score in top_5]
+    return top_5_hubs
+
+def answer_nine():
+    """
+    Apply the HITS Algorithm to this network to find the 5 nodes with highest
+    authority scores.
+    """
+
+    hits = nx.hits(G2)
+    sorted_auths = sorted(hits[1].items(), reverse=True, key=lambda x: x[1])
+    top_5 = sorted_auths[:5]
+    top_5_auths = [blog for blog, auth_score in top_5]
+    return top_5_auths
+
+answer_nine()
